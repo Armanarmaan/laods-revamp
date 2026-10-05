@@ -18,7 +18,8 @@ html{scroll-padding-top:calc(var(--header-height) + 24px)}
 .site-header.is-scrolled{background:rgba(16,27,41,.96);box-shadow:0 8px 24px rgba(0,0,0,.12);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .header nav a[aria-current="location"]:after{width:100%}
 .header nav a[aria-current="location"]{color:var(--lime)}
-.header nav a,.contact-nav{min-height:44px;display:inline-flex;align-items:center}
+.header nav a{min-height:44px;display:inline-flex;align-items:center}
+.contact-nav{min-height:44px;align-items:center}
 .experience-list details{overflow-anchor:none}
 .experience-list details[data-expanded="false"] .toggle:after{transform:rotate(90deg)}
 .experience-list details[data-expanded="true"] .toggle:after{transform:rotate(0deg)}
@@ -27,3 +28,54 @@ summary{touch-action:manipulation}
 @media(max-width:359px){.header nav{gap:12px}.header .wordmark{font-size:27px}}
 @media(prefers-reduced-motion:reduce){.site-header{transition:none}}
 @media print{.site-header{position:static;background:white;box-shadow:none}.site-header .wordmark{color:#111}}
+
+/* Mobile layout: reserve space for each item instead of hiding overflow. */
+.header .wordmark{flex-shrink:0}
+.header nav{min-width:0}
+.header nav a{white-space:nowrap;justify-content:center}
+.work-intro>*,.project-grid>*,.about-grid>*,.detail-content>*,.previous-role>*{min-width:0}
+.project-display{height:auto;min-height:330px}
+.display-header{gap:16px}
+.display-header>span,.workflow-step>span,.stock-line>b{flex-shrink:0}
+.workflow-step,.stock-line{gap:20px}
+.project-footnote{flex-wrap:wrap}
+@media(max-width:1050px){.project-display{height:auto;min-height:315px}}
+@media(max-width:700px){
+  .site-header .header{gap:16px;justify-content:space-between}
+  .header .contact-nav{display:none}
+  .header .wordmark{font-size:28px}
+  .header nav{gap:clamp(10px,3vw,20px)}
+  .header nav a{font-size:14px;padding:12px 0;min-height:48px}
+  .hero-top{display:grid;grid-template-columns:1fr;gap:12px}
+  .hero-top>.eyebrow{min-width:0;max-width:36ch;font-size:12px;line-height:1.8}
+  .hero-top .location{font-size:12px}
+  .hero-caption{align-items:flex-start;row-gap:12px}
+  .hero-caption>a{min-height:44px;display:inline-flex;align-items:center}
+  .section-heading{gap:24px}
+  .section-heading>.eyebrow{flex:1;min-width:0;max-width:180px}
+  .section-heading>p{flex:0 0 120px}
+  .work-intro h2,.about h2{font-size:clamp(36px,10vw,43px)}
+  .detail-content{padding-left:0}
+  .detail-content p,.previous-role>p{font-size:16px}
+  .project-display{height:auto;min-height:300px}
+  .scanner-display,.warehouse-display{padding:24px}
+  .workflow-step{font-size:clamp(22px,6vw,26px)}
+  .project-footnote{gap:16px}
+  .project-footnote>span{max-width:none}
+  .project-footnote .text-link{white-space:normal;font-size:14px;min-height:44px;align-items:center}
+  .about-facts dd{font-size:14px}
+  .footer{display:grid;grid-template-columns:1fr;gap:20px}
+  .footer>p{min-width:0;max-width:34ch;line-height:1.8}
+  .footer>div{width:100%;flex-wrap:wrap;gap:16px}
+  .footer>div>a{min-height:44px;display:inline-flex;align-items:center;font-size:14px}
+}
+@media(max-width:359px){
+  .wrap{width:calc(100% - 32px)}
+  .site-header .header{gap:10px}
+  .header .wordmark{font-size:26px}
+  .header nav{gap:10px}
+  .header nav a{font-size:13px}
+  .section-heading{gap:16px}
+  .section-heading>p{flex-basis:105px}
+  .about-facts{grid-template-columns:1fr;gap:24px}
+}
